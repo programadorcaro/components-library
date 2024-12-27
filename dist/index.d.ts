@@ -1,1 +1,2 @@
-export { Hello } from "./Hello";
+import './index.css';
+export { Hello } from './Hello';

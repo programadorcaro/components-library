@@ -24,7 +24,13 @@
 
     "declaration": true,
     "declarationDir": "./dist/types",
-    "emitDeclarationOnly": false
+    "emitDeclarationOnly": false,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": ["src"]
 }

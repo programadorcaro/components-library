@@ -24,7 +24,7 @@ export default function Table<T extends Record<keyof T, React.ReactNode>>({
           {columns.map((column: Columnn<T>, index) => (
             <div
               key={index}
-              className="px-6 py-3 text-left text-xs text-white tracking-wider uppercase font-semibold"
+              className="px-6 py-3 text-left text-xs text-black tracking-wider uppercase font-semibold"
             >
               {column.header}
             </div>
@@ -43,7 +43,7 @@ export default function Table<T extends Record<keyof T, React.ReactNode>>({
               onClick={() => onRowClick?.(row)}
             >
               {columns.map((column: Columnn<T>, colIndex) => (
-                <div key={colIndex} className="px-6 py-4 whitespace-nowrap text-xs text-white">
+                <div key={colIndex} className="px-6 py-4 whitespace-nowrap text-xs text-black">
                   {column.render ? column.render(row[column.key]) : row[column.key]}
                 </div>
               ))}

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Table from './index';
+import Table from '../table/index';
 
 const meta = {
   title: 'UI/Table',
@@ -85,7 +85,7 @@ export const CustomRendering: Story = {
         key: 'progress',
         header: 'Progress',
         render: (value) => (
-          <div className="w-full bg-gray-700 rounded-full h-2">
+          <div className="w-full bg-gray-100 rounded-full h-2">
             <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${value}%` }} />
           </div>
         ),
