@@ -6,7 +6,14 @@ const meta = {
   component: Table,
   parameters: {
     layout: 'centered',
+    docs: {
+      source: {
+        type: 'dynamic',
+        language: 'tsx',
+      },
+    },
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Table>;
 
 export default meta;
