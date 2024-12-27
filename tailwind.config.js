@@ -5,7 +5,7 @@ export default {
     "./index.html",
     "./src/**/*.{ts,tsx,js,jsx}",
     './.storybook/**/*.{js,ts,jsx,tsx}',
-    './story/**/*.{js,ts,jsx,tsx}',
+    './**/*.story/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
   	extend: {

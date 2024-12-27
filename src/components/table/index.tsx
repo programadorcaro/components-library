@@ -1,4 +1,4 @@
-import { cn } from '@/utils/cn';
+import { cn } from '@/lib/utils';
 
 export type Columnn<T, K extends keyof T = keyof T> = {
   key: K;

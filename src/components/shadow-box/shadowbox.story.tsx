@@ -89,3 +89,46 @@ export const WithTable: Story = {
     ),
   },
 };
+
+export const LargerPadding: Story = {
+  args: {
+    className: 'p-8',
+    children: <p>This shadow box has larger padding</p>,
+  },
+};
+
+export const RoundedCorners: Story = {
+  args: {
+    className: 'rounded-xl',
+    children: <p>This shadow box has more rounded corners</p>,
+  },
+};
+
+export const CustomColors: Story = {
+  args: {
+    className: 'shadow-[14px_14px_#94a3b8] bg-white',
+    children: <p>This shadow box has custom colors</p>,
+  },
+};
+
+export const DarkTheme: Story = {
+  args: {
+    className: 'bg-gray-800 shadow-[14px_14px_#fbbf24] text-white',
+    children: <p>This is a dark themed shadow box with yellow shadow</p>,
+  },
+};
+
+export const NoBorder: Story = {
+  args: {
+    className: 'rounded-none shadow-[14px_14px_#d2effd]',
+    children: <p>This shadow box has no rounded corners</p>,
+  },
+};
+
+export const Elevated: Story = {
+  args: {
+    className:
+      'shadow-[14px_14px_#d2effd] hover:translate-y-[-4px] transition-transform duration-200',
+    children: <p>Hover over this shadow box to see it elevate</p>,
+  },
+};

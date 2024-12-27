@@ -1,11 +1,15 @@
-export default function ShadowBox({ children }: React.PropsWithChildren) {
+import { cn } from '@/lib/utils';
+
+type ShadowBoxProps = {
+  className?: string;
+};
+
+export default function ShadowBox({
+  children,
+  className,
+}: React.PropsWithChildren<ShadowBoxProps>) {
   return (
-    <div
-      className="rounded-lg p-8 bg-white"
-      style={{
-        boxShadow: '14px 14px #d2effd',
-      }}
-    >
+    <div className={cn('rounded-lg p-4 bg-white shadow-[14px_14px_#d2effd]', className)}>
       {children}
     </div>
   );
