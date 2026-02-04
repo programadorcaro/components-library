@@ -18,12 +18,107 @@ import {
   Alert,
   Toast,
   PixelTitle,
+  Skeleton,
 } from '@repo/ui';
 import { Icon } from './components/Icon';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+
+const GITHUB_REPO_URL = 'https://github.com/programadorcaro/components-lib';
+const MOCK_STARS = '1.2k';
+const MOCK_FORKS = 42;
+
+const COLLABORATORS = [
+  { name: 'Colaborador 1', role: 'Maintainer', avatar: 'https://avatars.githubusercontent.com/u/1' },
+  { name: 'Colaborador 2', role: 'Contributor', avatar: 'https://avatars.githubusercontent.com/u/2' },
+  { name: 'Colaborador 3', role: 'Contributor', avatar: 'https://avatars.githubusercontent.com/u/3' },
+];
+
+const STAR_COUNT = 4000;
+const STAR_RADIUS = 1;
+const TWINKLE_SPEED = 0.002;
+const STAR_OPACITY_MIN = 0.05;
+const STAR_OPACITY_MAX = 0.4;
+
+type Star = { x: number; y: number; phase: number };
 
 function Starfield() {
-  return <div className="stars"></div>;
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const starsRef = useRef<Star[]>([]);
+  const frameRef = useRef<number>(0);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    function initStars(width: number, height: number): Star[] {
+      return Array.from({ length: STAR_COUNT }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        phase: Math.random() * Math.PI * 2,
+      }));
+    }
+
+    function draw(
+      context: CanvasRenderingContext2D,
+      width: number,
+      height: number,
+      stars: Star[],
+      time: number
+    ) {
+      context.clearRect(0, 0, width, height);
+      for (let i = 0; i < stars.length; i++) {
+        const star = stars[i];
+        const t = time * TWINKLE_SPEED + star.phase;
+        const opacity =
+          STAR_OPACITY_MIN +
+          (STAR_OPACITY_MAX - STAR_OPACITY_MIN) * (1 + Math.sin(t)) * 0.5;
+        context.beginPath();
+        context.arc(star.x, star.y, STAR_RADIUS, 0, Math.PI * 2);
+        context.fillStyle = `rgba(255, 0, 110, ${opacity})`;
+        context.fill();
+      }
+    }
+
+    function resize() {
+      const el = canvasRef.current;
+      const context = el?.getContext('2d');
+      if (!el || !context) return;
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      el.width = w;
+      el.height = h;
+      starsRef.current = initStars(w, h);
+    }
+
+    resize();
+
+    function loop(time: number) {
+      const el = canvasRef.current;
+      const context = el?.getContext('2d');
+      if (!el || !context || starsRef.current.length === 0) return;
+      draw(context, el.width, el.height, starsRef.current, time);
+      frameRef.current = requestAnimationFrame(loop);
+    }
+    frameRef.current = requestAnimationFrame(loop);
+
+    const onResize = () => {
+      resize();
+    };
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+      cancelAnimationFrame(frameRef.current);
+    };
+  }, []);
+
+  return (
+    <div className="stars">
+      <canvas ref={canvasRef} className="stars-canvas" aria-hidden />
+    </div>
+  );
 }
 
 function Header() {
@@ -37,8 +132,17 @@ function Header() {
         <a href="#docs" className="nav-link">
           Docs
         </a>
-        <a href="https://github.com" className="nav-link">
-          GitHub
+        <a href={GITHUB_REPO_URL} className="nav-link" target="_blank" rel="noopener noreferrer">
+          <Icon name="GitHub" size={18} className="pixel-icon" />
+          <span>GitHub</span>
+        </a>
+        <a href={GITHUB_REPO_URL} className="nav-link" target="_blank" rel="noopener noreferrer">
+          <Icon name="Star" size={16} className="pixel-icon" />
+          <span>{MOCK_STARS}</span>
+        </a>
+        <a href={GITHUB_REPO_URL} className="nav-link" target="_blank" rel="noopener noreferrer">
+          <Icon name="GitHub" size={16} className="pixel-icon" />
+          <span>{MOCK_FORKS}</span>
         </a>
       </nav>
     </header>
@@ -48,7 +152,7 @@ function Header() {
 function Hero() {
   return (
     <section className="hero">
-      <PixelTitle>PIXEL ART</PixelTitle>
+      <PixelTitle text="PIXEL ART"/>
       <h2 className="pixel-subtitle">Component Library</h2>
       <p className="pixel-text">
         Retro gaming inspired UI components with authentic pixel art corners
@@ -64,6 +168,20 @@ function Hero() {
       >
         <Button variant="primary">Get Started</Button>
         <Button variant="ghost">View Docs</Button>
+      </div>
+      <div className="hero-stats">
+        <a href={GITHUB_REPO_URL} className="hero-stat-link" target="_blank" rel="noopener noreferrer">
+          <Icon name="GitHub" size={20} className="pixel-icon" />
+          <span>View on GitHub</span>
+        </a>
+        <a href={GITHUB_REPO_URL} className="hero-stat-link" target="_blank" rel="noopener noreferrer">
+          <Icon name="Star" size={20} className="pixel-icon" />
+          <span>{MOCK_STARS}</span>
+        </a>
+        <a href={GITHUB_REPO_URL} className="hero-stat-link" target="_blank" rel="noopener noreferrer">
+          <Icon name="Fork" size={20} className="pixel-icon" />
+          <span>{MOCK_FORKS}</span>
+        </a>
       </div>
     </section>
   );
@@ -300,6 +418,43 @@ function ProgressSection() {
   );
 }
 
+function SkeletonSection() {
+  return (
+    <section className="section">
+      <h2 className="section-title">
+        <Icon name="Play" size={16} className="pixel-icon" /> Skeleton
+      </h2>
+      <div className="component-grid">
+        <div className="component-card">
+          <h3 className="component-label">Text lines</h3>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <Skeleton variant="text" />
+            <Skeleton variant="text" style={{ width: '90%' }} />
+            <Skeleton variant="text" style={{ width: '70%' }} />
+            <Skeleton variant="text" style={{ width: '85%' }} />
+          </div>
+        </div>
+
+        <div className="component-card">
+          <h3 className="component-label">Avatar + text</h3>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <Skeleton variant="circular" width={48} height={48} />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
+              <Skeleton variant="text" style={{ width: '80%' }} />
+              <Skeleton variant="text" style={{ width: '50%' }} />
+            </div>
+          </div>
+        </div>
+
+        <div className="component-card">
+          <h3 className="component-label">Card placeholder</h3>
+          <Skeleton variant="rect" height={120} style={{ width: '100%' }} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function AlertsSection() {
   return (
     <section className="section">
@@ -338,6 +493,57 @@ function AlertsSection() {
   );
 }
 
+function CollaboratorsSection() {
+  return (
+    <section className="section" id="collaborators">
+      <h2 className="section-title">
+        <Icon name="Play" size={16} className="pixel-icon" /> Colaboradores
+      </h2>
+      <div className="collaborators-grid">
+        {COLLABORATORS.map((person) => (
+          <div key={person.name} className="collaborator-card">
+            <img
+              src={person.avatar}
+              alt={person.name}
+              className="collaborator-avatar"
+              width={64}
+              height={64}
+            />
+            <span className="collaborator-name">{person.name}</span>
+            <span className="collaborator-role">{person.role}</span>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function HowToContributeSection() {
+  const steps = [
+    'Clone o repositório',
+    'Instale dependências (pnpm install)',
+    'Crie uma branch para sua mudança',
+    'Abra um Pull Request',
+  ];
+  return (
+    <section className="section" id="contribuir">
+      <h2 className="section-title">
+        <Icon name="Play" size={16} className="pixel-icon" /> Como contribuir
+      </h2>
+      <ol className="contribute-steps">
+        {steps.map((step, i) => (
+          <li key={i} className="contribute-step">
+            {step}
+          </li>
+        ))}
+      </ol>
+      <a href={`${GITHUB_REPO_URL}#readme`} className="hero-stat-link" target="_blank" rel="noopener noreferrer">
+        Ver guia completo
+      </a>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="footer">
@@ -361,7 +567,10 @@ export default function App() {
         <BadgesSection />
         <InputsSection />
         <ProgressSection />
+        <SkeletonSection />
         <AlertsSection />
+        <CollaboratorsSection />
+        <HowToContributeSection />
         <Footer />
       </div>
     </>

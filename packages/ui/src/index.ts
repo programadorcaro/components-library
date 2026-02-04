@@ -10,3 +10,4 @@ export * from './components/select';
 export * from './components/progress';
 export * from './components/alert';
 export * from './components/pixel-title';
+export * from './components/skeleton';

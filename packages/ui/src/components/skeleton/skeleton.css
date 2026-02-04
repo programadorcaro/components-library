@@ -1,0 +1,43 @@
+/* ========================================
+   SKELETON
+   ======================================== */
+.skeleton-pixel {
+  background: var(--color-bg-tertiary);
+  border: 3px solid var(--color-text-dim);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(
+    0 4px,
+    4px 4px,
+    4px 0,
+    calc(100% - 4px) 0,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
+  animation: skeletonShimmer 1.5s ease-in-out infinite;
+}
+
+.skeleton-text {
+  height: 12px;
+  min-width: 60px;
+}
+
+.skeleton-circular {
+  aspect-ratio: 1;
+}
+
+@keyframes skeletonShimmer {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
