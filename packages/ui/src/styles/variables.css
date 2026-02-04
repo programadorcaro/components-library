@@ -1,0 +1,48 @@
+/* ========================================
+   PIXEL ART COMPONENT LIBRARY
+   ======================================== */
+
+/* Custom Pixel Font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* ========================================
+   ROOT VARIABLES
+   ======================================== */
+:root {
+  /* Colors */
+  --color-bg: #0a0e27;
+  --color-bg-secondary: #1a1f3a;
+  --color-bg-tertiary: #2a2f4a;
+
+  --color-primary: #ff006e;
+  --color-primary-dark: #c9004d;
+  --color-secondary: #8338ec;
+  --color-accent: #00f5ff;
+  --color-success: #06ffa5;
+  --color-warning: #ffbe0b;
+  --color-danger: #ff006e;
+
+  --color-text: #ffffff;
+  --color-text-secondary: #b8c5d6;
+  --color-text-dim: #6b7a8f;
+
+  /* Pixel Borders */
+  --border-pixel: 4px;
+  --border-thick: 6px;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+
+  /* Font */
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-size-xs: 8px;
+  --font-size-sm: 10px;
+  --font-size-md: 12px;
+  --font-size-lg: 16px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 32px;
+}

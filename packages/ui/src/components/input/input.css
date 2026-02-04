@@ -1,0 +1,124 @@
+/* ========================================
+   INPUT FIELDS
+   ======================================== */
+.input-pixel {
+  font-family: var(--font-pixel);
+  font-size: var(--font-size-sm);
+  padding: var(--space-md);
+  background: var(--color-bg-secondary);
+  border: var(--border-pixel) solid var(--color-text-dim);
+  color: var(--color-text);
+  outline: none;
+  transition: all 0.2s ease;
+  clip-path: polygon(
+    0 6px,
+    6px 6px,
+    6px 0,
+    calc(100% - 6px) 0,
+    calc(100% - 6px) 6px,
+    100% 6px,
+    100% calc(100% - 6px),
+    calc(100% - 6px) calc(100% - 6px),
+    calc(100% - 6px) 100%,
+    6px 100%,
+    6px calc(100% - 6px),
+    0 calc(100% - 6px)
+  );
+}
+
+.input-pixel::placeholder {
+  color: var(--color-text-dim);
+}
+
+.input-pixel:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(0, 245, 255, 0.2);
+}
+
+.input-pixel:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* States */
+.input-success {
+  border-color: var(--color-success);
+}
+
+.input-success:focus {
+  box-shadow: 0 0 0 2px rgba(6, 255, 165, 0.2);
+}
+
+.input-error {
+  border-color: var(--color-danger);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 2px rgba(255, 0, 110, 0.2);
+}
+
+/* Textarea */
+.textarea-pixel {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.8;
+}
+
+/* Checkbox */
+.checkbox-pixel {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.checkbox-pixel input[type='checkbox'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-pixel .checkmark {
+  width: 20px;
+  height: 20px;
+  background: var(--color-bg-secondary);
+  border: 3px solid var(--color-text-dim);
+  position: relative;
+  clip-path: polygon(
+    0 3px,
+    3px 3px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+}
+
+.checkbox-pixel input[type='checkbox']:checked ~ .checkmark {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.checkbox-pixel input[type='checkbox']:checked ~ .checkmark::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--color-bg);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.checkbox-pixel .pixel-text-small {
+  font-size: var(--font-size-xs);
+  color: var(--color-text);
+}

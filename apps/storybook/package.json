@@ -1,0 +1,32 @@
+{
+  "name": "@repo/storybook",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6006",
+    "build": "storybook build",
+    "preview": "serve storybook-static",
+    "clean": "rm -rf storybook-static"
+  },
+  "dependencies": {
+    "@repo/ui": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
+    "@storybook/addon-essentials": "^8.5.0",
+    "@storybook/addon-interactions": "^8.5.0",
+    "@storybook/addon-links": "^8.5.0",
+    "@storybook/blocks": "^8.5.0",
+    "@storybook/react": "^8.5.0",
+    "@storybook/react-vite": "^8.5.0",
+    "@storybook/test": "^8.5.0",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "storybook": "^8.5.0",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11"
+  }
+}

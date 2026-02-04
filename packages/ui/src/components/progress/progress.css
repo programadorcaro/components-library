@@ -1,0 +1,184 @@
+/* ========================================
+   PROGRESS & LOADING
+   ======================================== */
+.progress-pixel {
+  width: 100%;
+  height: 24px;
+  background: var(--color-bg-secondary);
+  border: 3px solid var(--color-text-dim);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(
+    0 4px,
+    4px 4px,
+    4px 0,
+    calc(100% - 4px) 0,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.progress-accent .progress-fill {
+  background: var(--color-accent);
+}
+
+.progress-success .progress-fill {
+  background: var(--color-success);
+}
+
+/* Health Bars */
+.health-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
+  height: 28px;
+  background: var(--color-bg-secondary);
+  border: 3px solid var(--color-text-dim);
+  padding: 2px;
+  clip-path: polygon(
+    0 4px,
+    4px 4px,
+    4px 0,
+    calc(100% - 4px) 0,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
+}
+
+.health-bar-label {
+  font-family: var(--font-pixel);
+  font-size: var(--font-size-xs);
+  color: var(--color-text);
+  padding: 0 var(--space-sm);
+  z-index: 2;
+  min-width: 30px;
+}
+
+.health-bar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: #ef4444;
+  transition: width 0.3s ease;
+  z-index: 1;
+}
+
+.health-bar-text {
+  font-family: var(--font-pixel);
+  font-size: var(--font-size-xs);
+  color: var(--color-text);
+  margin-left: auto;
+  padding: 0 var(--space-sm);
+  z-index: 2;
+}
+
+.health-bar-mp .health-bar-fill {
+  background: #3b82f6;
+}
+
+.health-bar-xp .health-bar-fill {
+  background: #fbbf24;
+}
+
+/* Loaders */
+.loader-dots {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.loader-dots span {
+  width: 12px;
+  height: 12px;
+  background: var(--color-accent);
+  animation: dotBounce 1.4s infinite ease-in-out both;
+  clip-path: polygon(
+    0 3px,
+    3px 3px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+}
+
+.loader-dots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loader-dots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.loader-spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  animation: spinPixel 0.8s steps(8) infinite;
+}
+
+.loader-spinner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 4px solid transparent;
+  border-top-color: var(--color-accent);
+  border-right-color: var(--color-accent);
+  clip-path: polygon(
+    0 8px,
+    8px 8px,
+    8px 0,
+    calc(100% - 8px) 0,
+    calc(100% - 8px) 8px,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    8px calc(100% - 8px),
+    0 calc(100% - 8px)
+  );
+}
+
+/* Keyframes */
+@keyframes dotBounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes spinPixel {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,136 @@
+/* ========================================
+   BADGES & LABELS
+   ======================================== */
+.badge {
+  font-family: var(--font-pixel);
+  font-size: var(--font-size-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border: 2px solid;
+  display: inline-block;
+  text-transform: uppercase;
+  clip-path: polygon(
+    0 3px,
+    3px 3px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+}
+
+.badge-primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary-dark);
+  color: var(--color-text);
+}
+
+.badge-success {
+  background: var(--color-success);
+  border-color: #05cc84;
+  color: var(--color-bg);
+}
+
+.badge-danger {
+  background: var(--color-danger);
+  border-color: var(--color-primary-dark);
+  color: var(--color-text);
+}
+
+.badge-warning {
+  background: var(--color-warning);
+  border-color: #d4a009;
+  color: var(--color-bg);
+}
+
+/* Level Badges */
+.badge-level {
+  font-family: var(--font-pixel);
+  font-size: var(--font-size-xs);
+  padding: var(--space-xs) var(--space-md);
+  border: 2px solid;
+  display: inline-block;
+  font-weight: bold;
+  clip-path: polygon(
+    0 4px,
+    4px 4px,
+    4px 0,
+    calc(100% - 4px) 0,
+    calc(100% - 4px) 4px,
+    100% 4px,
+    100% calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) 100%,
+    4px 100%,
+    4px calc(100% - 4px),
+    0 calc(100% - 4px)
+  );
+}
+
+.badge-level-1 {
+  background: #4ade80;
+  border-color: #22c55e;
+  color: var(--color-bg);
+}
+
+.badge-level-2 {
+  background: #60a5fa;
+  border-color: #3b82f6;
+  color: var(--color-text);
+}
+
+.badge-level-3 {
+  background: #c084fc;
+  border-color: #a855f7;
+  color: var(--color-text);
+}
+
+.badge-level-4 {
+  background: #fbbf24;
+  border-color: #f59e0b;
+  color: var(--color-bg);
+  box-shadow: 0 0 15px rgba(251, 191, 36, 0.5);
+}
+
+/* Labels */
+.label {
+  font-family: var(--font-pixel);
+  font-size: var(--font-size-xs);
+  padding: var(--space-xs) var(--space-sm);
+  display: inline-block;
+  text-transform: uppercase;
+  clip-path: polygon(
+    0 3px,
+    3px 3px,
+    3px 0,
+    calc(100% - 3px) 0,
+    calc(100% - 3px) 3px,
+    100% 3px,
+    100% calc(100% - 3px),
+    calc(100% - 3px) calc(100% - 3px),
+    calc(100% - 3px) 100%,
+    3px 100%,
+    3px calc(100% - 3px),
+    0 calc(100% - 3px)
+  );
+}
+
+.label-pink {
+  background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+  color: var(--color-text);
+}
+
+.label-cyan {
+  background: linear-gradient(135deg, #00f5ff 0%, #00c4cc 100%);
+  color: var(--color-bg);
+}
+
+.label-yellow {
+  background: linear-gradient(135deg, #ffbe0b 0%, #ff006e 100%);
+  color: var(--color-text);
+}
