@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Icon } from './Icon';
 import { PixelTitle } from '@les-ui/pixel';
 
-const GITHUB_REPO_URL = 'https://github.com/programadorcaro/components-lib';
+const GITHUB_REPO_URL = 'https://github.com/programadorcaro/les-ui-pixel';
 const MOCK_STARS = '1.2k';
 const MOCK_FORKS = 42;
 

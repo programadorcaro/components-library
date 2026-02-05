@@ -47,12 +47,12 @@
   "description": "Biblioteca de componentes React com estética pixel art retro, inspirada em jogos clássicos 8-bit",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/programadorcaro/components-lib.git"
+    "url": "git+https://github.com/programadorcaro/les-ui-pixel.git"
   },
   "bugs": {
-    "url": "https://github.com/programadorcaro/components-lib/issues"
+    "url": "https://github.com/programadorcaro/les-ui-pixel/issues"
   },
-  "homepage": "https://github.com/programadorcaro/components-lib#readme",
+  "homepage": "https://github.com/programadorcaro/les-ui-pixel#readme",
   "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
