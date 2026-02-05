@@ -11,9 +11,13 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "clean": "turbo clean && rm -rf node_modules"
+    "clean": "turbo clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install",
+    "release": "turbo run build --filter=@les-ui/pixel && changeset publish"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.27.11",
     "@eslint/js": "^9.20.0",
     "@types/node": "^22.10.6",
     "eslint": "^9.20.0",

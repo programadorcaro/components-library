@@ -2,24 +2,23 @@
 
 Biblioteca de componentes React com estética pixel art retro, inspirada em jogos clássicos 8-bit.
 
-## Estrutura do Monorepo
+## Instalação
 
-Este é um monorepo gerenciado por **Turborepo** e **pnpm**, contendo:
-
-```
-components-lib/
-├── apps/
-│   ├── storybook/     # Documentação interativa dos componentes
-│   └── landing/       # Landing page de demonstração
-├── packages/
-│   └── ui/            # Biblioteca de componentes React
+```bash
+npm install @les-ui/pixel
 ```
 
-### Packages
+ou
 
-- **@repo/ui**: Biblioteca principal de componentes pixel art
-- **@repo/storybook**: App Storybook para documentação
-- **@repo/landing**: Landing page de demonstração
+```bash
+pnpm add @les-ui/pixel
+```
+
+ou
+
+```bash
+yarn add @les-ui/pixel
+```
 
 ## Tecnologias
 
@@ -27,7 +26,6 @@ components-lib/
 - **TypeScript 5** - Tipagem estática
 - **Vite 6** - Build tool e dev server
 - **Turborepo 2** - Monorepo build system
-- **Storybook 8** - Documentação de componentes
 - **pnpm** - Gerenciador de pacotes
 
 ## Primeiros Passos
@@ -35,9 +33,57 @@ components-lib/
 ### Pré-requisitos
 
 - Node.js >= 18.0.0
+- React >= 18.3.1
+- React-DOM >= 18.3.1
+
+### Uso Básico
+
+```tsx
+import {
+  Button,
+  Card,
+  CardHeader,
+  CardTitle,
+  CardBody,
+  Badge,
+} from '@les-ui/pixel';
+import '@les-ui/pixel/styles.css';
+
+function App() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Pixel Card</CardTitle>
+      </CardHeader>
+      <CardBody>
+        <Badge variant="success">NEW</Badge>
+        <Button variant="primary">Start Game</Button>
+      </CardBody>
+    </Card>
+  );
+}
+
+export default App;
+```
+
+## Desenvolvimento (Contribuindo)
+
+Este repositório é um monorepo gerenciado por **Turborepo** e **pnpm**, contendo:
+
+```
+components-lib/
+├── apps/
+│   └── landing/       # Landing page de demonstração
+└── packages/
+    └── ui/            # Biblioteca de componentes React (@les-ui/pixel)
+```
+
+### Pré-requisitos para Desenvolvimento
+
+- Node.js >= 18.0.0
 - pnpm >= 9.0.0
 
-### Instalação
+### Instalação Local
 
 ```bash
 # Instalar dependências
@@ -47,57 +93,46 @@ pnpm install
 pnpm build
 ```
 
-### Desenvolvimento
-
-```bash
-# Rodar todos os apps em desenvolvimento (Turborepo)
-pnpm dev
-
-# Rodar apenas o Storybook
-pnpm --filter @repo/storybook dev
-
-# Rodar apenas a landing page
-pnpm --filter @repo/landing dev
-
-# Buildar o package UI
-pnpm --filter @repo/ui build
-```
-
 ### URLs de Desenvolvimento
 
-- **Storybook**: http://localhost:6006
 - **Landing Page**: http://127.0.0.1:5174
 
 ## Componentes Disponíveis
 
 ### Botões
+
 - `Button` - Botões pixel art com múltiplas variantes (primary, secondary, accent, danger, success, ghost)
 - Tamanhos: sm, md, lg
 - Animações: pulse, shake, glow
 
 ### Cards
+
 - `Card` - Container principal
 - `CardHeader` / `CardTitle` - Cabeçalho
 - `CardBody` - Corpo do card
 - `CardFooter` - Rodapé
 
 ### Badges e Labels
+
 - `Badge` - Badges de status (primary, success, danger, warning)
 - `LevelBadge` - Badges de nível (1-4)
 - `Label` - Labels coloridos (pink, cyan, yellow)
 
 ### Inputs
+
 - `Input` - Input de texto
 - `Textarea` - Área de texto
 - `Select` - Select dropdown
 - `Checkbox` - Checkbox customizado
 
 ### Progress
+
 - `ProgressBar` - Barra de progresso
 - `HealthBar` - Barra de vida/mana/xp
 - `Loader` - Indicadores de loading (pixel, dots, spinner)
 
 ### Alerts
+
 - `Alert` - Alertas (info, success, warning, danger)
 - `Toast` - Notificações toast
 
@@ -111,8 +146,8 @@ import {
   CardTitle,
   CardBody,
   Badge,
-} from '@repo/ui';
-import '@repo/ui/styles.css';
+} from '@les-ui/pixel';
+import '@les-ui/pixel/styles.css';
 
 function App() {
   return (
@@ -154,18 +189,10 @@ A biblioteca usa variáveis CSS para manter consistência visual:
 
 ```css
 /* Cores principais */
---color-primary: #ff006e
---color-accent: #00f5ff
---color-success: #06ffa5
---color-danger: #ff006e
-
-/* Font pixel art */
---font-pixel: 'Press Start 2P', monospace
-
-/* Espaçamentos */
---space-sm: 8px
---space-md: 16px
---space-lg: 24px
+--color-primary:
+  #ff006e --color-accent: #00f5ff --color-success: #06ffa5
+    --color-danger: #ff006e /* Font pixel art */ --font-pixel: 'Press Start 2P',
+  monospace /* Espaçamentos */ --space-sm: 8px --space-md: 16px --space-lg: 24px;
 ```
 
 ### Pixel Corners
@@ -175,25 +202,88 @@ Todos os componentes usam `clip-path` CSS para criar os cantos pixel art caracte
 ```css
 .pixel-corner-8 {
   clip-path: polygon(
-    0 8px, 8px 8px, 8px 0,
-    calc(100% - 8px) 0, calc(100% - 8px) 8px, 100% 8px,
-    100% calc(100% - 8px), calc(100% - 8px) calc(100% - 8px),
-    calc(100% - 8px) 100%, 8px 100%, 8px calc(100% - 8px), 0 calc(100% - 8px)
+    0 8px,
+    8px 8px,
+    8px 0,
+    calc(100% - 8px) 0,
+    calc(100% - 8px) 8px,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    8px calc(100% - 8px),
+    0 calc(100% - 8px)
   );
 }
 ```
 
-## Build e Deploy
+## Processo de Release
+
+Este projeto usa **Changesets** para gerenciar versionamentos e publicações.
+
+### Criando um novo Changeset
+
+Após fazer mudanças no código, crie um changeset:
 
 ```bash
-# Build de produção
-pnpm build
+pnpm changeset
+```
 
+Você será solicitado a:
+
+1. Selecionar quais pacotes foram alterados (no caso, apenas `@les-ui/pixel`)
+2. Escolher o tipo de versão:
+   - `patch`: Bug fixes, pequenas correções (1.0.0 → 1.0.1)
+   - `minor`: Novas features compatíveis (1.0.0 → 1.1.0)
+   - `major`: Mudanças quebram compatibilidade (1.0.0 → 2.0.0)
+3. Escrever uma breve descrição das mudanças
+
+### Publicando uma Nova Versão
+
+```bash
+# Atualiza as versões dos pacotes e gera o CHANGELOG.md
+pnpm version-packages
+
+# Build e publica no npm
+pnpm release
+```
+
+Este comando:
+
+1. Lê todos os changesets do diretório `.changeset/`
+2. Atualiza a versão do pacote em `package.json`
+3. Gera/atualiza o arquivo `CHANGELOG.md`
+4. Compila o código
+5. Publica no npm registry
+
+## Build e Deploy
+
+### Desenvolvimento
+
+```bash
+# Rodar a landing page
+pnpm --filter @repo/landing dev
+
+# Buildar o package UI
+pnpm --filter @les-ui/pixel build
+```
+
+### Build de Produção
+
+```bash
+# Build de produção do package
+pnpm --filter @les-ui/pixel build
+
+# Build de todos os packages e apps
+pnpm build
+```
+
+### Preview
+
+```bash
 # Preview do build da landing page
 pnpm --filter @repo/landing preview
-
-# Build do Storybook estático
-pnpm --filter @repo/storybook build
 ```
 
 ## Contribuindo

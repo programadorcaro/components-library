@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ui",
+  "name": "@les-ui/pixel",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -12,10 +12,12 @@
       "require": "./dist/index.js"
     },
     "./styles.css": {
-      "default": "./dist/index.css"
+      "default": "./dist/styles.css"
     }
   },
-  "sideEffects": ["*.css"],
+  "sideEffects": [
+    "*.css"
+  ],
   "files": [
     "dist"
   ],
@@ -25,6 +27,32 @@
     "lint": "eslint . --ext ts,tsx",
     "clean": "rm -rf dist"
   },
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "pixel-art",
+    "retro",
+    "8-bit",
+    "button",
+    "card",
+    "input",
+    "select",
+    "badge",
+    "progress",
+    "alert"
+  ],
+  "author": "ProgramadorCaro",
+  "license": "MIT",
+  "description": "Biblioteca de componentes React com estética pixel art retro, inspirada em jogos clássicos 8-bit",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/programadorcaro/components-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/programadorcaro/components-lib/issues"
+  },
+  "homepage": "https://github.com/programadorcaro/components-lib#readme",
   "peerDependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1"

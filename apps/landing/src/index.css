@@ -1,4 +1,4 @@
-@import '@repo/ui/styles.css';
+@import '@les-ui/pixel/styles.css';
 
 * {
   margin: 0;
@@ -76,7 +76,9 @@ body {
 .logo {
   font-size: var(--font-size-lg);
   color: var(--color-accent);
-  text-shadow: 0 0 10px var(--color-accent), 0 0 20px var(--color-accent);
+  text-shadow:
+    0 0 10px var(--color-accent),
+    0 0 20px var(--color-accent);
 }
 
 .nav {

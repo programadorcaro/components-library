@@ -19,7 +19,7 @@ import {
   Toast,
   PixelTitle,
   Skeleton,
-} from '@repo/ui';
+} from '@les-ui/pixel';
 import { Icon } from './components/Icon';
 import { useState, useRef, useEffect } from 'react';
 
@@ -28,9 +28,21 @@ const MOCK_STARS = '1.2k';
 const MOCK_FORKS = 42;
 
 const COLLABORATORS = [
-  { name: 'Colaborador 1', role: 'Maintainer', avatar: 'https://avatars.githubusercontent.com/u/1' },
-  { name: 'Colaborador 2', role: 'Contributor', avatar: 'https://avatars.githubusercontent.com/u/2' },
-  { name: 'Colaborador 3', role: 'Contributor', avatar: 'https://avatars.githubusercontent.com/u/3' },
+  {
+    name: 'Colaborador 1',
+    role: 'Maintainer',
+    avatar: 'https://avatars.githubusercontent.com/u/1',
+  },
+  {
+    name: 'Colaborador 2',
+    role: 'Contributor',
+    avatar: 'https://avatars.githubusercontent.com/u/2',
+  },
+  {
+    name: 'Colaborador 3',
+    role: 'Contributor',
+    avatar: 'https://avatars.githubusercontent.com/u/3',
+  },
 ];
 
 const STAR_COUNT = 4000;
@@ -132,15 +144,30 @@ function Header() {
         <a href="#docs" className="nav-link">
           Docs
         </a>
-        <a href={GITHUB_REPO_URL} className="nav-link" target="_blank" rel="noopener noreferrer">
+        <a
+          href={GITHUB_REPO_URL}
+          className="nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon name="GitHub" size={18} className="pixel-icon" />
           <span>GitHub</span>
         </a>
-        <a href={GITHUB_REPO_URL} className="nav-link" target="_blank" rel="noopener noreferrer">
+        <a
+          href={GITHUB_REPO_URL}
+          className="nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon name="Star" size={16} className="pixel-icon" />
           <span>{MOCK_STARS}</span>
         </a>
-        <a href={GITHUB_REPO_URL} className="nav-link" target="_blank" rel="noopener noreferrer">
+        <a
+          href={GITHUB_REPO_URL}
+          className="nav-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon name="GitHub" size={16} className="pixel-icon" />
           <span>{MOCK_FORKS}</span>
         </a>
@@ -152,7 +179,7 @@ function Header() {
 function Hero() {
   return (
     <section className="hero">
-      <PixelTitle text="PIXEL ART"/>
+      <PixelTitle text="PIXEL ART" />
       <h2 className="pixel-subtitle">Component Library</h2>
       <p className="pixel-text">
         Retro gaming inspired UI components with authentic pixel art corners
@@ -170,15 +197,30 @@ function Hero() {
         <Button variant="ghost">View Docs</Button>
       </div>
       <div className="hero-stats">
-        <a href={GITHUB_REPO_URL} className="hero-stat-link" target="_blank" rel="noopener noreferrer">
+        <a
+          href={GITHUB_REPO_URL}
+          className="hero-stat-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon name="GitHub" size={20} className="pixel-icon" />
           <span>View on GitHub</span>
         </a>
-        <a href={GITHUB_REPO_URL} className="hero-stat-link" target="_blank" rel="noopener noreferrer">
+        <a
+          href={GITHUB_REPO_URL}
+          className="hero-stat-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon name="Star" size={20} className="pixel-icon" />
           <span>{MOCK_STARS}</span>
         </a>
-        <a href={GITHUB_REPO_URL} className="hero-stat-link" target="_blank" rel="noopener noreferrer">
+        <a
+          href={GITHUB_REPO_URL}
+          className="hero-stat-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Icon name="Fork" size={20} className="pixel-icon" />
           <span>{MOCK_FORKS}</span>
         </a>
@@ -439,7 +481,14 @@ function SkeletonSection() {
           <h3 className="component-label">Avatar + text</h3>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
             <Skeleton variant="circular" width={48} height={48} />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', flex: 1 }}>
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '8px',
+                flex: 1,
+              }}
+            >
               <Skeleton variant="text" style={{ width: '80%' }} />
               <Skeleton variant="text" style={{ width: '50%' }} />
             </div>
@@ -459,7 +508,8 @@ function AlertsSection() {
   return (
     <section className="section">
       <h2 className="section-title">
-        <Icon name="Play" size={16} className="pixel-icon" /> Alerts & Notifications
+        <Icon name="Play" size={16} className="pixel-icon" /> Alerts &
+        Notifications
       </h2>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <Alert variant="info">
@@ -537,7 +587,12 @@ function HowToContributeSection() {
           </li>
         ))}
       </ol>
-      <a href={`${GITHUB_REPO_URL}#readme`} className="hero-stat-link" target="_blank" rel="noopener noreferrer">
+      <a
+        href={`${GITHUB_REPO_URL}#readme`}
+        className="hero-stat-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         Ver guia completo
       </a>
     </section>
@@ -547,7 +602,15 @@ function HowToContributeSection() {
 function Footer() {
   return (
     <footer className="footer">
-      <p className="pixel-text" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+      <p
+        className="pixel-text"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '8px',
+        }}
+      >
         Made with <Icon name="Heart" size={12} /> and pixels
       </p>
       <p className="pixel-text-small">© 2026 Pixel Art Component Library</p>
