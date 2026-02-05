@@ -9,6 +9,9 @@
   text-shadow:
     4px 4px 0 var(--color-primary),
     8px 8px 0 var(--color-secondary);
+}
+
+.pixel-title.float {
   animation: float 3s ease-in-out infinite;
 }
 
@@ -50,19 +53,43 @@
 }
 
 @keyframes glitch-anim {
-  0% { clip: rect(10px, 9999px, 31px, 0); }
-  20% { clip: rect(85px, 9999px, 140px, 0); }
-  40% { clip: rect(43px, 9999px, 65px, 0); }
-  60% { clip: rect(25px, 9999px, 95px, 0); }
-  80% { clip: rect(60px, 9999px, 73px, 0); }
-  100% { clip: rect(35px, 9999px, 48px, 0); }
+  0% {
+    clip: rect(10px, 9999px, 31px, 0);
+  }
+  20% {
+    clip: rect(85px, 9999px, 140px, 0);
+  }
+  40% {
+    clip: rect(43px, 9999px, 65px, 0);
+  }
+  60% {
+    clip: rect(25px, 9999px, 95px, 0);
+  }
+  80% {
+    clip: rect(60px, 9999px, 73px, 0);
+  }
+  100% {
+    clip: rect(35px, 9999px, 48px, 0);
+  }
 }
 
 @keyframes glitch-anim2 {
-  0% { clip: rect(65px, 9999px, 119px, 0); }
-  20% { clip: rect(35px, 9999px, 95px, 0); }
-  40% { clip: rect(85px, 9999px, 105px, 0); }
-  60% { clip: rect(15px, 9999px, 45px, 0); }
-  80% { clip: rect(50px, 9999px, 75px, 0); }
-  100% { clip: rect(70px, 9999px, 90px, 0); }
+  0% {
+    clip: rect(65px, 9999px, 119px, 0);
+  }
+  20% {
+    clip: rect(35px, 9999px, 95px, 0);
+  }
+  40% {
+    clip: rect(85px, 9999px, 105px, 0);
+  }
+  60% {
+    clip: rect(15px, 9999px, 45px, 0);
+  }
+  80% {
+    clip: rect(50px, 9999px, 75px, 0);
+  }
+  100% {
+    clip: rect(70px, 9999px, 90px, 0);
+  }
 }

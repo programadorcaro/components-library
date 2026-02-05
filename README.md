@@ -99,6 +99,27 @@ pnpm build
 
 ## Componentes Disponíveis
 
+### PixelTitle
+
+- `PixelTitle` - Título pixel art com efeitos glitch e float
+- Props: `text`, `glitch` (boolean, default: true), `float` (boolean, default: true)
+
+```tsx
+import { PixelTitle } from '@les-ui/pixel';
+
+// Com glitch e float (padrão)
+<PixelTitle text="PIXEL ART" />
+
+// Sem glitch
+<PixelTitle text="PIXEL ART" glitch={false} />
+
+// Sem float
+<PixelTitle text="PIXEL ART" float={false} />
+
+// Sem ambos
+<PixelTitle text="PIXEL ART" glitch={false} float={false} />
+```
+
 ### Botões
 
 - `Button` - Botões pixel art com múltiplas variantes (primary, secondary, accent, danger, success, ghost)
