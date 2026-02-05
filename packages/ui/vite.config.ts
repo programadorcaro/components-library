@@ -22,7 +22,7 @@ export default defineConfig({
       external: ['react', 'react-dom', 'react/jsx-runtime'],
       output: {
         assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'styles.css';
+          if (assetInfo.name?.endsWith('.css')) return 'styles.css';
           return assetInfo.name || '';
         },
         globals: {
