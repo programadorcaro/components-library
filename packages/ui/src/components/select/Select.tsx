@@ -177,3 +177,5 @@ export function Select({
     </>
   );
 }
+
+Select.displayName = 'Select';

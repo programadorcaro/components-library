@@ -32,6 +32,8 @@ export function Alert({
   );
 }
 
+Alert.displayName = 'Alert';
+
 export interface ToastProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: string;
 }

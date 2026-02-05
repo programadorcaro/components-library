@@ -23,15 +23,6 @@
   animation: skeletonShimmer 1.5s ease-in-out infinite;
 }
 
-.skeleton-text {
-  height: 12px;
-  min-width: 60px;
-}
-
-.skeleton-circular {
-  aspect-ratio: 1;
-}
-
 @keyframes skeletonShimmer {
   0%,
   100% {

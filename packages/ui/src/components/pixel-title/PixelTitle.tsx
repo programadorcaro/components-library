@@ -29,3 +29,5 @@ export function PixelTitle({
     </h1>
   );
 }
+
+PixelTitle.displayName = 'PixelTitle';

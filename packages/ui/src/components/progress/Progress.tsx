@@ -30,6 +30,8 @@ export function ProgressBar({
   );
 }
 
+ProgressBar.displayName = 'ProgressBar';
+
 export interface HealthBarProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number;
   max?: number;

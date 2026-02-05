@@ -341,17 +341,17 @@ function SkeletonSection() {
         <div className="component-card">
           <h3 className="component-label">Text lines</h3>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            <Skeleton variant="text" />
-            <Skeleton variant="text" style={{ width: '90%' }} />
-            <Skeleton variant="text" style={{ width: '70%' }} />
-            <Skeleton variant="text" style={{ width: '85%' }} />
+            <Skeleton style={{ width: '100%', height: '12px' }} />
+            <Skeleton style={{ width: '90%', height: '12px' }} />
+            <Skeleton style={{ width: '70%', height: '12px' }} />
+            <Skeleton style={{ width: '85%', height: '12px' }} />
           </div>
         </div>
 
         <div className="component-card">
           <h3 className="component-label">Avatar + text</h3>
           <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <Skeleton variant="circular" width={48} height={48} />
+            <Skeleton width={48} height={48} />
             <div
               style={{
                 display: 'flex',
@@ -360,15 +360,15 @@ function SkeletonSection() {
                 flex: 1,
               }}
             >
-              <Skeleton variant="text" style={{ width: '80%' }} />
-              <Skeleton variant="text" style={{ width: '50%' }} />
+              <Skeleton style={{ width: '80%', height: '12px' }} />
+              <Skeleton style={{ width: '50%', height: '12px' }} />
             </div>
           </div>
         </div>
 
         <div className="component-card">
           <h3 className="component-label">Card placeholder</h3>
-          <Skeleton variant="rect" height={120} style={{ width: '100%' }} />
+          <Skeleton height={120} style={{ width: '100%' }} />
         </div>
       </div>
     </section>

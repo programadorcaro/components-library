@@ -1,5 +1,15 @@
 import { Playground } from '../components/Playground';
-import { buttonStory, cardStory, inputStory, badgeStory } from '../stories';
+import {
+  buttonStory,
+  cardStory,
+  inputStory,
+  badgeStory,
+  alertStory,
+  pixelTitleStory,
+  progressStory,
+  selectStory,
+  skeletonStory,
+} from '../stories';
 
 export function Docs() {
   return (
@@ -9,7 +19,19 @@ export function Docs() {
         Explore e teste os componentes da biblioteca em tempo real. Ajuste as
         props e veja o resultado instantaneamente.
       </p>
-      <Playground stories={[buttonStory, cardStory, inputStory, badgeStory]} />
+      <Playground
+        stories={[
+          buttonStory,
+          cardStory,
+          inputStory,
+          badgeStory,
+          alertStory,
+          pixelTitleStory,
+          progressStory,
+          selectStory,
+          skeletonStory,
+        ]}
+      />
     </section>
   );
 }

@@ -103,11 +103,11 @@ function Header() {
       </Link>
 
       <nav className="nav">
-        <Link to="/docs" className="nav-link">
-          Docs
-        </Link>
         <Link to="/" className="nav-link">
           Home
+        </Link>
+        <Link to="/docs" className="nav-link">
+          Docs
         </Link>
         <a
           href={GITHUB_REPO_URL}
