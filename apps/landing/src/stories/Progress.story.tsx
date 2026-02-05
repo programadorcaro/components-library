@@ -1,7 +1,7 @@
-import { ProgressBar } from '@les-ui/pixel';
+import { ProgressBar, ProgressBarProps } from '@les-ui/pixel';
 import { StoryConfig } from '../components/ComponentDoc';
 
-export const progressStory: StoryConfig = {
+export const progressStory: StoryConfig<ProgressBarProps> = {
   id: 'progress',
   title: 'ProgressBar',
   component: ProgressBar,

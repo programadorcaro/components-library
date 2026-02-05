@@ -1,7 +1,7 @@
-import { PixelTitle } from '@les-ui/pixel';
+import { PixelTitle, PixelTitleProps } from '@les-ui/pixel';
 import { StoryConfig } from '../components/ComponentDoc';
 
-export const pixelTitleStory: StoryConfig = {
+export const pixelTitleStory: StoryConfig<PixelTitleProps> = {
   id: 'pixel-title',
   title: 'PixelTitle',
   component: PixelTitle,

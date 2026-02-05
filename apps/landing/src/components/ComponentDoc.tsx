@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { PropsControl, PropConfig } from './PropsControl';
 import { CodePreview } from './CodePreview';
 
-export interface StoryConfig<T extends Record<string, unknown> = Record<string, unknown>> {
+export interface StoryConfig<T extends object = object> {
   id: string;
   title: string;
   component: React.ComponentType<T>;
@@ -16,23 +16,23 @@ export interface StoryConfig<T extends Record<string, unknown> = Record<string, 
   isVoidElement?: boolean;
 }
 
-export interface ComponentDocProps {
-  story: StoryConfig;
+export interface ComponentDocProps<T extends object = object> {
+  story: StoryConfig<T>;
 }
 
-export function ComponentDoc({ story }: ComponentDocProps) {
-  const [currentProps, setCurrentProps] = useState(story.defaultProps);
+export function ComponentDoc<T extends object = object>({ story }: ComponentDocProps<T>) {
+  const [currentProps, setCurrentProps] = useState<T>(story.defaultProps);
 
   useEffect(() => {
     setCurrentProps(story.defaultProps);
   }, [story.id, story.defaultProps]);
 
   const handlePropsChange = useCallback((newProps: Record<string, unknown>) => {
-    setCurrentProps(newProps as StoryConfig['defaultProps']);
+    setCurrentProps(newProps as T);
   }, []);
 
-  const handlePresetSelect = useCallback((presetProps: Record<string, unknown>) => {
-    setCurrentProps(presetProps as StoryConfig['defaultProps']);
+  const handlePresetSelect = useCallback((presetProps: T) => {
+    setCurrentProps(presetProps as T);
   }, []);
 
   const generateCode = useCallback(() => {
@@ -42,9 +42,10 @@ export function ComponentDoc({ story }: ComponentDocProps) {
 
     const shouldFilterChildren = story.isVoidElement ?? false;
 
-    const childrenValue = currentProps.children;
+    const currentPropsAsRecord = currentProps as Record<string, unknown>;
+    const childrenValue = currentPropsAsRecord.children;
 
-    const propsEntries = Object.entries(currentProps)
+    const propsEntries = Object.entries(currentPropsAsRecord)
       .filter(([, value]) => {
         if (value !== undefined && value !== '') {
           return true;
@@ -116,10 +117,10 @@ export function ComponentDoc({ story }: ComponentDocProps) {
           <div className="component-doc-preview-area">
           <Component
             {...(Object.fromEntries(
-              Object.entries(currentProps).filter(([key]) => {
+              Object.entries(currentProps as Record<string, unknown>).filter(([key]) => {
                 return !(story.isVoidElement ?? false) || key !== 'children';
               })
-            ) as StoryConfig['defaultProps'])}
+            ) as T)}
           />
           </div>
         </div>
@@ -127,7 +128,7 @@ export function ComponentDoc({ story }: ComponentDocProps) {
         <div className="component-doc-controls">
           <PropsControl
             props={Object.fromEntries(
-              Object.entries(currentProps).filter(([key]) => {
+              Object.entries(currentProps as Record<string, unknown>).filter(([key]) => {
                 return !(story.isVoidElement ?? false) || key !== 'children';
               })
             )}

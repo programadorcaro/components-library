@@ -1,5 +1,4 @@
-import React from 'react';
-import { Input, Select, Checkbox } from '@les-ui/pixel';
+import { Input, Select, Checkbox, SelectOption } from '@les-ui/pixel';
 
 export type PropType = 'select' | 'boolean' | 'text' | 'number';
 
@@ -7,7 +6,7 @@ export interface PropConfig<T = unknown> {
   type: PropType;
   options?: Array<{ value: T; label: string }>;
   default: T;
-  label: string;
+  label:string;
   description?: string;
   min?: number;
   max?: number;
@@ -47,15 +46,15 @@ export function PropsControl({
               <div className="prop-control-input">
                 {propConfig.type === 'select' && propConfig.options && (
                   <Select
-                    value={value}
+                    value={value as string}
                     onChange={(val) => handleChange(key, val)}
-                    options={propConfig.options}
+                    options={propConfig.options as SelectOption[]}
                     placeholder={propConfig.label}
                   />
                 )}
                 {propConfig.type === 'boolean' && (
                   <Checkbox
-                    checked={value}
+                    checked={value as boolean}
                     onChange={(e) => handleChange(key, e.target.checked)}
                     label={String(value)}
                   />

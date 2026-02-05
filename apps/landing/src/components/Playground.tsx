@@ -1,25 +1,8 @@
-import React, { useState } from 'react';
-import { ComponentDoc } from './ComponentDoc';
-
-export interface Story {
-  id: string;
-  config: React.ComponentType;
-}
+import { useState } from 'react';
+import { ComponentDoc, StoryConfig } from './ComponentDoc';
 
 export interface PlaygroundProps {
-  stories: Array<{
-    id: string;
-    title: string;
-    component: React.ComponentType;
-    description?: string;
-    defaultProps: Record<string, unknown>;
-    propsConfig?: Record<string, unknown>;
-    presets?: Array<{
-      name: string;
-      props: Record<string, unknown>;
-    }>;
-    isVoidElement?: boolean;
-  }>;
+  stories: StoryConfig<any>[];
 }
 
 export function Playground({
