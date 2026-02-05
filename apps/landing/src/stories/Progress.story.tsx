@@ -72,4 +72,7 @@ export const progressStory: StoryConfig = {
       },
     },
   ],
+  complexExample: `import { ProgressBar } from '@les-ui/pixel';
+
+<ProgressBar value={65} max={100} variant="default" />`,
 };

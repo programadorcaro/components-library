@@ -13,7 +13,6 @@ import {
   Select,
   Checkbox,
   ProgressBar,
-  HealthBar,
   Loader,
   Alert,
   Toast,
@@ -305,13 +304,6 @@ function ProgressSection() {
         <Icon name="Play" size={16} className="pixel-icon" /> Progress & Loading
       </h2>
       <div className="component-grid">
-        <div className="component-card">
-          <h3 className="component-label">Health Bars</h3>
-          <HealthBar type="hp" label="HP" value={750} max={1000} />
-          <HealthBar type="mp" label="MP" value={250} max={500} />
-          <HealthBar type="xp" label="XP" value={900} max={1000} />
-        </div>
-
         <div className="component-card">
           <h3 className="component-label">Progress Bars</h3>
           <ProgressBar value={30} max={100} />

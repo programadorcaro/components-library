@@ -1,10 +1,11 @@
 import { Playground } from '../components/Playground';
 import {
+  alertStory,
+  badgeStory,
   buttonStory,
   cardStory,
   inputStory,
-  badgeStory,
-  alertStory,
+  loaderStory,
   pixelTitleStory,
   progressStory,
   selectStory,
@@ -28,6 +29,7 @@ export function Docs() {
           alertStory,
           pixelTitleStory,
           progressStory,
+          loaderStory,
           selectStory,
           skeletonStory,
         ]}

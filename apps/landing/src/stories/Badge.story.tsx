@@ -56,4 +56,7 @@ export const badgeStory: StoryConfig = {
       },
     },
   ],
+  complexExample: `import { Badge } from '@les-ui/pixel';
+
+<Badge variant="primary">NEW</Badge>`,
 };

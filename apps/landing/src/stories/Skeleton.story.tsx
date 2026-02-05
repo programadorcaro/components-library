@@ -56,4 +56,7 @@ export const skeletonStory: StoryConfig = {
       },
     },
   ],
+  complexExample: `import { Skeleton } from '@les-ui/pixel';
+
+<Skeleton width={200} height={20} />`,
 };
