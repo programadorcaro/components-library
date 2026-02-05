@@ -1,18 +1,5 @@
-import { Select } from '@les-ui/pixel';
 import { StoryConfig } from '../components/ComponentDoc';
-
-const SelectExample = (props: any) => (
-  <Select
-    {...props}
-    options={[
-      { value: 'option1', label: 'Option 1' },
-      { value: 'option2', label: 'Option 2' },
-      { value: 'option3', label: 'Option 3' },
-    ]}
-  />
-);
-
-SelectExample.displayName = 'Select';
+import { SelectExample } from '../components/examples/SelectExample';
 
 export const selectStory: StoryConfig = {
   id: 'select',

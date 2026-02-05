@@ -2,7 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { PropsControl, PropConfig } from './PropsControl';
 import { CodePreview } from './CodePreview';
 
-export interface StoryConfig<T extends Record<string, any> = any> {
+export interface StoryConfig<T extends Record<string, unknown> = Record<string, unknown>> {
   id: string;
   title: string;
   component: React.ComponentType<T>;
@@ -26,14 +26,14 @@ export function ComponentDoc({ story }: ComponentDocProps) {
 
   useEffect(() => {
     setCurrentProps(story.defaultProps);
-  }, [story.id]);
+  }, [story.id, story.defaultProps]);
 
-  const handlePropsChange = useCallback((newProps: Record<string, any>) => {
-    setCurrentProps(newProps);
+  const handlePropsChange = useCallback((newProps: Record<string, unknown>) => {
+    setCurrentProps(newProps as StoryConfig['defaultProps']);
   }, []);
 
-  const handlePresetSelect = useCallback((presetProps: Record<string, any>) => {
-    setCurrentProps(presetProps);
+  const handlePresetSelect = useCallback((presetProps: Record<string, unknown>) => {
+    setCurrentProps(presetProps as StoryConfig['defaultProps']);
   }, []);
 
   const generateCode = useCallback(() => {
@@ -50,7 +50,7 @@ export function ComponentDoc({ story }: ComponentDocProps) {
     const childrenValue = currentProps.children;
 
     const propsEntries = Object.entries(currentProps)
-      .filter(([key, value]) => {
+      .filter(([, value]) => {
         if (value !== undefined && value !== '') {
           return true;
         }
@@ -119,13 +119,13 @@ export function ComponentDoc({ story }: ComponentDocProps) {
         <div className="component-doc-preview">
           <h4 className="component-doc-section-title">Preview</h4>
           <div className="component-doc-preview-area">
-            <Component
-              {...(Object.fromEntries(
-                Object.entries(currentProps).filter(([key]) => {
-                  return !(story.isVoidElement ?? false) || key !== 'children';
-                })
-              ) as any)}
-            />
+          <Component
+            {...(Object.fromEntries(
+              Object.entries(currentProps).filter(([key]) => {
+                return !(story.isVoidElement ?? false) || key !== 'children';
+              })
+            ) as StoryConfig['defaultProps'])}
+          />
           </div>
         </div>
 

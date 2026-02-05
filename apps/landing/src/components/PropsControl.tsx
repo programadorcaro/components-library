@@ -3,7 +3,7 @@ import { Input, Select, Checkbox } from '@les-ui/pixel';
 
 export type PropType = 'select' | 'boolean' | 'text' | 'number';
 
-export interface PropConfig<T = any> {
+export interface PropConfig<T = unknown> {
   type: PropType;
   options?: Array<{ value: T; label: string }>;
   default: T;
@@ -15,9 +15,9 @@ export interface PropConfig<T = any> {
 }
 
 export interface PropsControlProps {
-  props: Record<string, any>;
+  props: Record<string, unknown>;
   config: Record<string, PropConfig>;
-  onChange: (props: Record<string, any>) => void;
+  onChange: (props: Record<string, unknown>) => void;
 }
 
 export function PropsControl({
@@ -25,7 +25,7 @@ export function PropsControl({
   config,
   onChange,
 }: PropsControlProps) {
-  const handleChange = (key: string, value: any) => {
+  const handleChange = (key: string, value: unknown) => {
     onChange({ ...props, [key]: value });
   };
 

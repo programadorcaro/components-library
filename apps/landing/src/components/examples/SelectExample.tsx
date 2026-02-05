@@ -1,0 +1,12 @@
+import { Select, type SelectProps } from '@les-ui/pixel';
+
+export const SelectExample = (props: SelectProps) => (
+  <Select
+    {...props}
+    options={[
+      { value: 'option1', label: 'Option 1' },
+      { value: 'option2', label: 'Option 2' },
+      { value: 'option3', label: 'Option 3' },
+    ]}
+  />
+);

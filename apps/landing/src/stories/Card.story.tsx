@@ -1,30 +1,5 @@
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardBody,
-  CardFooter,
-} from '@les-ui/pixel';
 import { StoryConfig } from '../components/ComponentDoc';
-
-const CardExample = (props: any) => (
-  <Card {...props}>
-    <CardHeader>
-      <CardTitle>Game Stats</CardTitle>
-    </CardHeader>
-    <CardBody>
-      <p style={{ fontSize: '14px', color: '#999' }}>
-        Track your progress, achievements and rankings with real-time
-        statistics.
-      </p>
-    </CardBody>
-    <CardFooter>
-      <span style={{ fontSize: '12px', color: '#666' }}>View stats →</span>
-    </CardFooter>
-  </Card>
-);
-
-CardExample.displayName = 'Card';
+import { CardExample } from '../components/examples/CardExample';
 
 export const cardStory: StoryConfig = {
   id: 'card',

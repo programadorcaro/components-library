@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentDoc } from './ComponentDoc';
 
-export interface Story<T extends Record<string, any>> {
+export interface Story {
   id: string;
   config: React.ComponentType;
 }
@@ -12,11 +12,11 @@ export interface PlaygroundProps {
     title: string;
     component: React.ComponentType;
     description?: string;
-    defaultProps: any;
-    propsConfig?: Record<string, any>;
+    defaultProps: Record<string, unknown>;
+    propsConfig?: Record<string, unknown>;
     presets?: Array<{
       name: string;
-      props: any;
+      props: Record<string, unknown>;
     }>;
     isVoidElement?: boolean;
   }>;
