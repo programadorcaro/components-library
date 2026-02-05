@@ -14,6 +14,7 @@ export interface StoryConfig<T extends Record<string, any> = any> {
     props: T;
   }>;
   isVoidElement?: boolean;
+  complexExample?: string;
 }
 
 export interface ComponentDocProps {
@@ -36,11 +37,17 @@ export function ComponentDoc({ story }: ComponentDocProps) {
   }, []);
 
   const generateCode = useCallback(() => {
+    if (story.complexExample) {
+      return story.complexExample;
+    }
+
     const Component = story.component;
     const componentName =
       Component.displayName || Component.name || 'Component';
 
     const shouldFilterChildren = story.isVoidElement ?? false;
+
+    const childrenValue = currentProps.children;
 
     const propsEntries = Object.entries(currentProps)
       .filter(([key, value]) => {
@@ -49,7 +56,15 @@ export function ComponentDoc({ story }: ComponentDocProps) {
         }
         return false;
       })
-      .filter(([key]) => !shouldFilterChildren || key !== 'children')
+      .filter(([key]) => {
+        if (key === 'children') {
+          if (typeof childrenValue === 'string' && !shouldFilterChildren) {
+            return false;
+          }
+          return !shouldFilterChildren;
+        }
+        return true;
+      })
       .map(([key, value]) => {
         if (typeof value === 'boolean') {
           return value ? key : null;
@@ -64,8 +79,12 @@ export function ComponentDoc({ story }: ComponentDocProps) {
     const propsString =
       propsEntries.length > 0 ? ` ${propsEntries.join(' ')}` : '';
 
+    if (typeof childrenValue === 'string' && !shouldFilterChildren) {
+      return `<${componentName}${propsString}>${childrenValue}</${componentName}>`;
+    }
+
     return `<${componentName}${propsString} />`;
-  }, [story.component, currentProps, story.isVoidElement]);
+  }, [story.component, currentProps, story.isVoidElement, story.complexExample]);
 
   const Component = story.component;
 

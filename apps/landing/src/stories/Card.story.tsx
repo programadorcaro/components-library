@@ -33,6 +33,22 @@ export const cardStory: StoryConfig = {
   description:
     'Contêiner flexível com estilo pixel art para exibir conteúdo relacionado de forma estruturada.',
   isVoidElement: false,
+  complexExample: `import { Card, CardHeader, CardTitle, CardBody, CardFooter } from '@les-ui/pixel';
+
+<Card variant="default">
+  <CardHeader>
+    <CardTitle>Game Stats</CardTitle>
+  </CardHeader>
+  <CardBody>
+    <p style={{ fontSize: '14px', color: '#999' }}>
+      Track your progress, achievements and rankings with real-time
+      statistics.
+    </p>
+  </CardBody>
+  <CardFooter>
+    <span style={{ fontSize: '12px', color: '#666' }}>View stats →</span>
+  </CardFooter>
+</Card>`,
   defaultProps: {
     variant: 'default' as const,
   },
