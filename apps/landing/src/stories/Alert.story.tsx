@@ -56,7 +56,4 @@ export const alertStory: StoryConfig = {
       },
     },
   ],
-  complexExample: `import { Alert } from '@les-ui/pixel';
-
-<Alert variant="info">This is an important information message.</Alert>`,
 };

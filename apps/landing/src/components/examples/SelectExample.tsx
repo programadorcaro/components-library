@@ -10,3 +10,5 @@ export const SelectExample = (props: SelectProps) => (
     ]}
   />
 );
+
+SelectExample.displayName = 'Select';

@@ -14,7 +14,6 @@ export interface StoryConfig<T extends Record<string, unknown> = Record<string, 
     props: T;
   }>;
   isVoidElement?: boolean;
-  complexExample?: string;
 }
 
 export interface ComponentDocProps {
@@ -37,10 +36,6 @@ export function ComponentDoc({ story }: ComponentDocProps) {
   }, []);
 
   const generateCode = useCallback(() => {
-    if (story.complexExample) {
-      return story.complexExample;
-    }
-
     const Component = story.component;
     const componentName =
       Component.displayName || Component.name || 'Component';
@@ -84,7 +79,7 @@ export function ComponentDoc({ story }: ComponentDocProps) {
     }
 
     return `<${componentName}${propsString} />`;
-  }, [story.component, currentProps, story.isVoidElement, story.complexExample]);
+  }, [story.component, currentProps, story.isVoidElement]);
 
   const Component = story.component;
 
@@ -137,7 +132,7 @@ export function ComponentDoc({ story }: ComponentDocProps) {
               })
             )}
             config={Object.fromEntries(
-              Object.entries(story.propsConfig).filter(([key]) => {
+              Object.entries(story.propsConfig ?? {}).filter(([key]) => {
                 return !(story.isVoidElement ?? false) || key !== 'children';
               })
             )}

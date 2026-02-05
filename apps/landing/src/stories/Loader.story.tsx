@@ -37,11 +37,4 @@ export const loaderStory: StoryConfig = {
       },
     },
   ],
-  complexExample: `import { Loader } from '@les-ui/pixel';
-
-// Dots loader
-<Loader type="dots" />
-
-// Spinner loader
-<Loader type="spinner" />`,
 };

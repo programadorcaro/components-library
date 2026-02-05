@@ -93,3 +93,5 @@ export function Loader({
   // type === 'spinner'
   return <div className={`loader-spinner ${className}`} {...props} />;
 }
+
+Loader.displayName = 'Loader';

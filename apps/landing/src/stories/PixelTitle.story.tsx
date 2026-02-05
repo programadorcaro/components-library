@@ -8,9 +8,6 @@ export const pixelTitleStory: StoryConfig = {
   description:
     'Título pixel art com efeitos de glitch e flutuação para headings impactantes.',
   isVoidElement: false,
-  complexExample: `import { PixelTitle } from '@les-ui/pixel';
-
-<PixelTitle text="Game Over" glitch={true} float={true} />`,
   defaultProps: {
     text: 'Game Over',
     glitch: true,

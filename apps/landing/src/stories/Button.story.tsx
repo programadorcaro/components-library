@@ -102,7 +102,4 @@ export const buttonStory: StoryConfig = {
       },
     },
   ],
-  complexExample: `import { Button } from '@les-ui/pixel';
-
-<Button variant="primary" size="md" animation="none" style8bit={false}>Start Game</Button>`,
 };

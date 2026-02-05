@@ -8,17 +8,6 @@ export const selectStory: StoryConfig = {
   description:
     'Dropdown com estilo pixel art para seleção de opções.',
   isVoidElement: true,
-  complexExample: `import { Select } from '@les-ui/pixel';
-
-<Select
-  options={[
-    { value: 'option1', label: 'Option 1' },
-    { value: 'option2', label: 'Option 2' },
-    { value: 'option3', label: 'Option 3' },
-  ]}
-  placeholder="Select an option..."
-  disabled={false}
-/>`,
   defaultProps: {
     placeholder: 'Select an option...',
     disabled: false,

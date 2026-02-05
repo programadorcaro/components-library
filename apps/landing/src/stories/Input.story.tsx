@@ -89,7 +89,4 @@ export const inputStory: StoryConfig = {
       },
     },
   ],
-  complexExample: `import { Input } from '@les-ui/pixel';
-
-<Input type="text" placeholder="Enter text..." state="default" disabled={false} />`,
 };
