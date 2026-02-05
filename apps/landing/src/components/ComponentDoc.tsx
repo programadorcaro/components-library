@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { PropsControl, PropConfig } from './PropsControl';
 import { CodePreview } from './CodePreview';
 
@@ -20,10 +20,12 @@ export interface ComponentDocProps {
   story: StoryConfig;
 }
 
-export function ComponentDoc({
-  story,
-}: ComponentDocProps) {
+export function ComponentDoc({ story }: ComponentDocProps) {
   const [currentProps, setCurrentProps] = useState(story.defaultProps);
+
+  useEffect(() => {
+    setCurrentProps(story.defaultProps);
+  }, [story.id]);
 
   const handlePropsChange = useCallback((newProps: Record<string, any>) => {
     setCurrentProps(newProps);
@@ -98,11 +100,13 @@ export function ComponentDoc({
         <div className="component-doc-preview">
           <h4 className="component-doc-section-title">Preview</h4>
           <div className="component-doc-preview-area">
-            <Component {...(Object.fromEntries(
-              Object.entries(currentProps).filter(([key]) => {
-                return !(story.isVoidElement ?? false) || key !== 'children';
-              })
-            ) as any)} />
+            <Component
+              {...(Object.fromEntries(
+                Object.entries(currentProps).filter(([key]) => {
+                  return !(story.isVoidElement ?? false) || key !== 'children';
+                })
+              ) as any)}
+            />
           </div>
         </div>
 

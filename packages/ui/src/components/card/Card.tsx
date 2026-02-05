@@ -26,6 +26,8 @@ export function Card({
   );
 }
 
+Card.displayName = 'Card';
+
 export interface CardHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function CardHeader({
@@ -40,8 +42,9 @@ export function CardHeader({
   );
 }
 
-export interface CardTitleProps
-  extends React.HTMLAttributes<HTMLHeadingElement> {}
+CardHeader.displayName = 'CardHeader';
+
+export interface CardTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
 
 export function CardTitle({
   className = '',
@@ -54,6 +57,8 @@ export function CardTitle({
     </h3>
   );
 }
+
+CardTitle.displayName = 'CardTitle';
 
 export interface CardBodyProps extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -69,6 +74,8 @@ export function CardBody({
   );
 }
 
+CardBody.displayName = 'CardBody';
+
 export interface CardFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function CardFooter({
@@ -82,3 +89,5 @@ export function CardFooter({
     </div>
   );
 }
+
+CardFooter.displayName = 'CardFooter';

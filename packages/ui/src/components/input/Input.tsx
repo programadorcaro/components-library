@@ -1,8 +1,7 @@
 import React from 'react';
 import './input.css';
 
-export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   state?: 'default' | 'success' | 'error';
 }
 
@@ -22,8 +21,9 @@ export function Input({
   return <input className={classes} {...props} />;
 }
 
-export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+Input.displayName = 'Input';
+
+export interface TextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   state?: 'default' | 'success' | 'error';
 }
 
@@ -44,10 +44,11 @@ export function Textarea({
   return <textarea className={classes} {...props} />;
 }
 
+Textarea.displayName = 'Textarea';
+
 // Select foi movido para seu próprio componente em /components/select
 
-export interface CheckboxProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
 }
 
@@ -57,7 +58,8 @@ export function Checkbox({
   id,
   ...props
 }: CheckboxProps) {
-  const checkboxId = id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
+  const checkboxId =
+    id || `checkbox-${Math.random().toString(36).substr(2, 9)}`;
 
   return (
     <label className={`checkbox-pixel ${className}`}>

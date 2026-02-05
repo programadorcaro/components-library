@@ -1,15 +1,8 @@
 import React from 'react';
 import './button.css';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?:
-    | 'primary'
-    | 'secondary'
-    | 'accent'
-    | 'danger'
-    | 'success'
-    | 'ghost';
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'primary' | 'secondary' | 'accent' | 'danger' | 'success' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   animation?: 'pulse' | 'shake' | 'glow' | 'none';
   style8bit?: boolean;
@@ -41,3 +34,5 @@ export function Button({
     </button>
   );
 }
+
+Button.displayName = 'Button';

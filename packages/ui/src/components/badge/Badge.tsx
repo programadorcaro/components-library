@@ -22,6 +22,8 @@ export function Badge({
   );
 }
 
+Badge.displayName = 'Badge';
+
 export interface LevelBadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   level?: 1 | 2 | 3 | 4;
 }
@@ -43,6 +45,8 @@ export function LevelBadge({
   );
 }
 
+LevelBadge.displayName = 'LevelBadge';
+
 export interface LabelProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'pink' | 'cyan' | 'yellow';
 }
@@ -63,3 +67,5 @@ export function Label({
     </span>
   );
 }
+
+Label.displayName = 'Label';

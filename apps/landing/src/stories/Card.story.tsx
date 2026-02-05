@@ -10,23 +10,28 @@ import { StoryConfig } from '../components/ComponentDoc';
 const CardExample = (props: any) => (
   <Card {...props}>
     <CardHeader>
-      <CardTitle>Character Card</CardTitle>
+      <CardTitle>Game Stats</CardTitle>
     </CardHeader>
     <CardBody>
-      <p style={{ fontSize: '14px', color: '#999' }}>Level 42 Warrior</p>
+      <p style={{ fontSize: '14px', color: '#999' }}>
+        Track your progress, achievements and rankings with real-time
+        statistics.
+      </p>
     </CardBody>
     <CardFooter>
-      <span style={{ fontSize: '12px', color: '#666' }}>View Details</span>
+      <span style={{ fontSize: '12px', color: '#666' }}>View stats →</span>
     </CardFooter>
   </Card>
 );
+
+CardExample.displayName = 'Card';
 
 export const cardStory: StoryConfig = {
   id: 'card',
   title: 'Card',
   component: CardExample,
   description:
-    'Contêiner principal com estilo pixel art para agrupar conteúdo relacionado.',
+    'Contêiner flexível com estilo pixel art para exibir conteúdo relacionado de forma estruturada.',
   isVoidElement: false,
   defaultProps: {
     variant: 'default' as const,
@@ -53,19 +58,19 @@ export const cardStory: StoryConfig = {
       },
     },
     {
-      name: 'Accent Quest Card',
+      name: 'Accent Card',
       props: {
         variant: 'accent' as const,
       },
     },
     {
-      name: 'Danger Boss Card',
+      name: 'Danger Card',
       props: {
         variant: 'danger' as const,
       },
     },
     {
-      name: 'Success Achievement Card',
+      name: 'Success Card',
       props: {
         variant: 'success' as const,
       },
