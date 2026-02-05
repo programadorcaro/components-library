@@ -29,19 +29,14 @@ const MOCK_FORKS = 42;
 
 const COLLABORATORS = [
   {
-    name: 'Colaborador 1',
+    name: 'Lucas Maia e Silva',
     role: 'Maintainer',
-    avatar: 'https://avatars.githubusercontent.com/u/1',
+    avatar: 'https://avatars.githubusercontent.com/u/8356935?v=4',
   },
   {
-    name: 'Colaborador 2',
+    name: 'Víctor Souza',
     role: 'Contributor',
-    avatar: 'https://avatars.githubusercontent.com/u/2',
-  },
-  {
-    name: 'Colaborador 3',
-    role: 'Contributor',
-    avatar: 'https://avatars.githubusercontent.com/u/3',
+    avatar: 'https://avatars.githubusercontent.com/u/102697200?v=4',
   },
 ];
 
@@ -414,17 +409,29 @@ function CollaboratorsSection() {
       </h2>
       <div className="collaborators-grid">
         {COLLABORATORS.map((person) => (
-          <div key={person.name} className="collaborator-card">
-            <img
-              src={person.avatar}
-              alt={person.name}
-              className="collaborator-avatar"
-              width={64}
-              height={64}
-            />
-            <span className="collaborator-name">{person.name}</span>
-            <span className="collaborator-role">{person.role}</span>
-          </div>
+          <Card key={person.name}>
+            <CardHeader
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '12px',
+                borderBottom: 'none',
+              }}
+            >
+              <img
+                src={person.avatar}
+                alt={person.name}
+                className="collaborator-avatar"
+                width={64}
+                height={64}
+              />
+              <CardTitle>{person.name}</CardTitle>
+            </CardHeader>
+            <CardBody>
+              <span className="collaborator-role">{person.role}</span>
+            </CardBody>
+          </Card>
         ))}
       </div>
     </section>

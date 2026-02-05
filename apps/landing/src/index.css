@@ -230,7 +230,7 @@ a:hover {
 /* Collaborators */
 .collaborators-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, 280px);
   gap: var(--space-lg);
 }
 
@@ -263,6 +263,7 @@ a:hover {
   height: 64px;
   border-radius: 50%;
   object-fit: cover;
+  margin: 0 auto;
 }
 
 .collaborator-name {
